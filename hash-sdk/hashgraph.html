@@ -1,0 +1,80 @@
+<script type="text/javascript">
+    RED.nodes.registerType('hash-submit',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:"hash-submit"},
+            priv: {value:"302e020100300506032b6570042204209774270bde2b5d40ce4f588fd72eeddd4e972193b82ffce3b2ca27558d0d2c83"},
+            accountId: {value:"0.0.30707"},
+            network : {value: "testnet"},
+            topic: {value: "0.0.41536"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "file.png",
+        label: function() {
+            return this.name||"hash-submit";
+        }
+    });
+
+    RED.nodes.registerType('hash-retrieve',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:"hash-retrieve"},
+            topicId: {value:"0.0.41536"},
+            network : {value: "testnet"},
+            apiKey: {value: "af41ab078a56deacdbafed1e66ffc574290daad5"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "file.png",
+        label: function() {
+            return this.name||"hash-retrieve";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="hash-retrieve">
+    <div class="form-row">
+
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+<br>
+        <label for="node-input-network"><i class="icon-tag"></i>network</label>
+        <input type="text" id="node-input-network" placeholder="testnet">
+<br>
+        <label for="node-input-topicid"><i class="icon-tag"></i>topic</label>
+        <input type="text" id="node-input-topic" placeholder="0.0.41536">
+
+    </div>
+</script>
+
+<script type="text/html" data-help-name="hash-retrieve">
+    <p>A simple node that retrieves messages from Dragonglass Mirror Node API</p>
+</script>
+
+<script type="text/html" data-template-name="hash-submit">
+    <div class="form-row">
+
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+<br>
+        <label for="node-input-name"><i class="icon-tag"></i>private key</label>
+        <input type="text" id="node-input-priv" placeholder="Private Key">
+<br>
+        <label for="node-input-name"><i class="icon-tag"></i>account id</label>
+        <input type="text" id="node-input-accountId" placeholder="Account Id">
+<br>
+        <label for="node-input-name"><i class="icon-tag"></i>network</label>
+        <input type="text" id="node-input-network" placeholder="testnet">
+<br>
+        <label for="node-input-name"><i class="icon-tag"></i>topic</label>
+        <input type="text" id="node-input-topic" placeholder="0.0.41536">
+
+    </div>
+</script>
+
+<script type="text/html" data-help-name="hash-submit">
+    <p>A simple node that sends messages to Hashgraph Consensus Service</p>
+</script>
